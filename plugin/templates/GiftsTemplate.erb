@@ -1,0 +1,11 @@
+<%= header %>
+%xh<%= @char.name %>'s Gifts%xn
+<%= military_name(@char) %> -- <%= prism_color(@char) %>
+<%= divider %>
+
+<% @gifts.each do |key, value| %>
+%xh<%= key %>%xn
+<%= value %>
+<% end %>
+
+<%= footer %>

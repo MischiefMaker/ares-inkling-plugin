@@ -12,7 +12,7 @@ module AresMUSH
 
       def handle
         ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
-          template = BorderedDisplayTemplate.new model.gifts, "#{model.name}'s Gifts"
+          template = GiftsTemplate.new(model,model.gifts || {})
           client.emit template.render
 	       end
       end

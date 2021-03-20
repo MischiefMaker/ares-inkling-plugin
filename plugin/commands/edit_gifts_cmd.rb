@@ -3,10 +3,21 @@ module AresMUSH
     class EditGiftsCmd
     include CommandHandler
 
-     attr_accessor :name, :gifts
+     attr_accessor :name, :gift_name, :gift_description
 
      def parse_args
-          self.name = cmd.args || enactor_name
+       args = cmd.parse_args(ArgParser.arg1_equals_optional_arg2)
+        if (args.arg2 == nil)
+          self.name = enactor_name
+          self.gift_name = titlecase_arg(args.arg1)
+        else
+          self.name = titlecase_arg(args.arg1)
+          self.gift_name = titlecase_arg(args.arg2)
+        end
+    end
+
+    def required_args
+      [ self.name, self.gift_name ]
     end
 
     def check_can_view
@@ -16,11 +27,16 @@ module AresMUSH
     end
 
     def handle
-      if (enactor.name == self.name)
-        Utils.grab client, enactor, "gifts/set #{enactor.gifts}"
+      char = Character.find_one_by_name(self.name)
+      if (char.gifts == nil)
+        client.emit_failure "#{self.name} does not have any gifts. Use gifts/set to create some first!"
       else
-        ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
-          Utils.grab client, enactor, "gifts/set #{model.name}=#{model.gifts}"
+        gifts = Hash[char.gifts]
+        self.gift_description = gifts[self.gift_name]
+          if (enactor.name == self.name)
+            Utils.grab client, enactor, "gifts/set #{self.gift_name}=#{self.gift_description}"
+          else
+            Utils.grab client, enactor, "gifts/set #{self.name}=#{self.gift_name}/#{self.gift_description}"
           end
       end
     end

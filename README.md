@@ -1,4 +1,6 @@
+# Web Component
 
+## Profile 
 To have hints viewable on the web profile, you need to make the following changes:
 
 open ares/ares-webportal/app/templates/components/profile-custom-tabs.hbs and add the following line:
@@ -35,7 +37,8 @@ then:
     
 
 Once the website has redeployed, the tab should appear on the profile.
-    
+
+## CharGen
 To add Gifts to chargen, you'll need to do the following:
 
 Open ares-webportal/app/template/components/chargen-custom-tabs.hbs and add:

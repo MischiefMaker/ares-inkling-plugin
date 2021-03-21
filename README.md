@@ -32,5 +32,41 @@ When finished, from the MUSH, type:
 then:
 
     website/deploy
+    
 
 Once the website has redeployed, the tab should appear on the profile.
+    
+To add Gifts to chargen, you'll need to do the following:
+
+Open ares-webportal/app/template/components/chargen-custom-tabs.hbs and add:
+
+    <li><a data-toggle="tab" href="#systemextras">Extras</a></li>
+
+Open ares-webportal/app/template/components/chargen-custom.hbs and add:
+
+    <div id="systemextras" class="tab-pane fade">
+    <h2>Gifts & Abilities</h2>
+    <p>{{char.custom.gifts_blurb}}</p>
+    {{#each char.custom.gifts as |gift|}}
+    {{input type="text" value=gift.name size=25}}
+    <button class="btn btn-default" id="deletegift" {{action 'deleteGift' gift.name}}><i class="fa fa-trash" aria-label="Delete Gift"></i></button>
+    {{textarea value=gift.desc cols="80" rows=5}}
+    {{/each}}
+    <button class="btn btn-default" id="addgift" {{action 'addGift'}}>Add Gift</button>
+    </div>
+
+In aresmush/plugins/profile/custom_char_fields.rb, change the following:
+
+      def self.get_fields_for_chargen(char)
+          return {
+            gifts: Gifts.get_gifts_for_web_editing(char),
+            gifts_blurb: Gifts.get_blurb_for_web()
+          }
+      end
+      
+and
+
+    def self.save_fields_from_chargen(char, chargen_data)
+        return {
+        gifts: Gifts.save_gifts_from_chargen(char, chargen_data)
+      }

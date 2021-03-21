@@ -20,6 +20,8 @@ module AresMUSH
           return SetGiftsCmd
        when "edit"
          return EditGiftsCmd
+       when "delete"
+         return DeleteGiftsCmd
        else
           return GiftsCmd
        end

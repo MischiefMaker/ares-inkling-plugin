@@ -27,6 +27,18 @@ module AresMUSH
     def self.get_blurb_for_web()
      blurb = Global.read_config('gifts')["gifts_blurb"]
      Website.format_input_for_html(blurb)
-   end
+    end
+
+    def self.check_gifts_for_chargen(char)
+      gifts = char.gifts || {}
+      if (gifts.empty?())
+        msg = t('chargen.oops_missing', :missing => "Gifts")
+      else
+        msg = t('chargen.ok')
+      end
+
+      return Chargen.format_review_status "Checking gifts are set.", msg
+    end
+
   end
 end

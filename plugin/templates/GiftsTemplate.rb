@@ -11,8 +11,8 @@ module AresMUSH
       def military_name(char)
         Ranks.military_name(char)
       end
-      def prism_color(char)
-        char.groups[:prism]
+      def school_name(char)
+        char.group("School")
       end
     end
   end

@@ -1,6 +1,6 @@
 <%= header %>
 %xh<%= @char.name %>'s Gifts%xn
-<%= military_name(@char) %> -- <%= prism_color(@char) %>
+<%= military_name(@char) %> -- School: <%= school_name(@char)  %>
 <%= divider %>
 
 <% @gifts.each do |key, value| %>

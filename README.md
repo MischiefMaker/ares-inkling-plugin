@@ -43,11 +43,11 @@ Once the website has redeployed, the tab should appear on the profile.
 ## CharGen (optional)
 To add Gifts to chargen, you'll need to do the following:
 
-Open ares-webportal/app/template/components/chargen-custom-tabs.hbs and add:
+Open ares-webportal/app/templates/components/chargen-custom-tabs.hbs and add:
 
     <li><a data-toggle="tab" href="#systemextras">Extras</a></li>
 
-Open ares-webportal/app/template/components/chargen-custom.hbs and add:
+Open ares-webportal/app/templates/components/chargen-custom.hbs and add:
 
     <div id="systemextras" class="tab-pane fade">
     <h2>Gifts & Abilities</h2>

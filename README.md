@@ -76,6 +76,11 @@ and
         gifts: Gifts.save_gifts_from_chargen(char, chargen_data)
       }
       
-To check for Gifts during chargen review, add the following to aresmush/plugins/chargen/custom_app_review.rb:
+To check for Gifts during chargen review, replace 'return nil' in aresmush/plugins/chargen/custom_app_review.rb with:
 
     Gifts.check_gifts_for_chargen(char)
+
+Then do:
+
+    load all
+    website/deploy

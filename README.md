@@ -1,7 +1,9 @@
 # Web Component
 
+These steps are optional. The code should work MUSH-side as-is, but if you want to incorporate it into the profile and/or chargen, follow the steps below.
+
 ## Profile (optional)
-To have hints viewable on the web profile, you need to make the following changes:
+To have gifts viewable on the web profile, you need to make the following changes:
 
 open ares/ares-webportal/app/templates/components/profile-custom-tabs.hbs and add the following line:
 

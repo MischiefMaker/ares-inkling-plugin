@@ -82,18 +82,18 @@ To check for Gifts during chargen review, replace 'return nil' in aresmush/plugi
     
 Add to ares-webportal/app/components/custom-chargen.js:
 
-      onUpdate: function() {
-    // Return a hash containing your data.  Character data will be in 'char'.  >
+  onUpdate: function() {
+    // Return a hash containing your data.  Character data will be in 'char'.  For example:
     //
     let data = {};
       this.get('char.custom.gifts').filter(t => t.name && t.name.length > 0)
          .forEach(t => data[t.name] = t.desc);
       return data;
-    },
+     },
 
     actions: {
         addGift() {
-          this.get('char.custom.gifts').pushObject(EmberObject.create( {name: ">
+          this.get('char.custom.gifts').pushObject(EmberObject.create( {name: "New Gift", desc: "Enter a Description"} ));
         },
         deleteGift(name) {
           let found = this.get('char.custom.gifts').find(t => t.name === name);

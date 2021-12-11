@@ -82,7 +82,7 @@ To check for Gifts during chargen review, replace 'return nil' in aresmush/plugi
     
 Add to ares-webportal/app/components/custom-chargen.js:
 
-  onUpdate: function() {
+    onUpdate: function() {
     // Return a hash containing your data.  Character data will be in 'char'.  For example:
     //
     let data = {};

@@ -79,6 +79,32 @@ and
 To check for Gifts during chargen review, replace 'return nil' in aresmush/plugins/chargen/custom_app_review.rb with:
 
     Gifts.check_gifts_for_chargen(char)
+    
+Add to ares-webportal/app/components/custom-chargen.js:
+
+      onUpdate: function() {
+    // Return a hash containing your data.  Character data will be in 'char'.  >
+    //
+    let data = {};
+      this.get('char.custom.gifts').filter(t => t.name && t.name.length > 0)
+         .forEach(t => data[t.name] = t.desc);
+      return data;
+    },
+
+    actions: {
+        addGift() {
+          this.get('char.custom.gifts').pushObject(EmberObject.create( {name: ">
+        },
+        deleteGift(name) {
+          let found = this.get('char.custom.gifts').find(t => t.name === name);
+          if (found) {
+            this.get('char.custom.gifts').removeObject(found);
+          }
+        }
+      }
+    });
+
+
 
 Then do:
 

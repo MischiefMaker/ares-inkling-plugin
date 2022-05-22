@@ -7,11 +7,11 @@ To have inklings viewable on the web profile, you need to make the following cha
 
 open ares/ares-webportal/app/templates/components/profile-custom-tabs.hbs and add the following line:
 
-    <li><a data-toggle="tab" href="#systemhints">Inklings</a></li>
+    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href"#systemextras">Extras</a></li>
 
 open ares/ares-webportal/app/templates/components/profile-custom.hbs and add the following lines:
 
-    <div id="systemhints" class="tab-pane fade">
+    <div id="systemextras" class="tab-pane fade">
       <h2>Inklings & Secrets</h2>
       {{#each char.custom.inklings as |inkling|}}
         <h3>{{inkling.name}}</h3>
@@ -45,7 +45,7 @@ To add Inklings to chargen, you'll need to do the following:
 
 Open ares-webportal/app/templates/components/chargen-custom-tabs.hbs and add:
 
-    <li><a data-toggle="tab" href="#systemextras">Extras</a></li>
+    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href"#systemextras">Extras</a></li>
 
 Open ares-webportal/app/templates/components/chargen-custom.hbs and add:
 

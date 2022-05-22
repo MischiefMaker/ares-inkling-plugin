@@ -1,11 +1,12 @@
 ---
-gifts:
-  gifts_blurb: 'Please give a short explanation of your character''s magical ability,
+inklings:
+  inklings_blurb: 'Please give a short explanation of your character''s magical ability,
     including whether it can be used on others or only yourself. If used on others,
     please indicate whether physical contact is needed or at how great a distance.
     Please also explain if it makes any changes to stats. '
   shortcuts:
-    gifts/add: gifts/set
-    gifts/update: gifts/set
-    gift: gifts
-    gifts/remove: gifts/delete
+    inklings/add: inklings/set
+    inklings/update: inklings/set
+    ink: inklings
+    inkling: inklings
+    inklings/remove: inklings/delete

@@ -1,0 +1,11 @@
+<%= header %>
+%xh<%= @char.name %>'s Inklings%xn
+<%= military_name(@char) %>
+<%= divider %>
+
+<% @inklings.each do |key, value| %>
+%xh<%= key %>%xn
+<%= value %>
+<% end %>
+
+<%= footer %>

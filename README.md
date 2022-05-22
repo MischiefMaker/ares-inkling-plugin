@@ -7,7 +7,7 @@ To have inklings viewable on the web profile, you need to make the following cha
 
 open ares/ares-webportal/app/templates/components/profile-custom-tabs.hbs and add the following line:
 
-    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href"#systemextras">Extras</a></li>
+    <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#systemextras">Extras</a></li>
 
 open ares/ares-webportal/app/templates/components/profile-custom.hbs and add the following lines:
 

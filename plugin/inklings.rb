@@ -1,7 +1,7 @@
 $:.unshift File.dirname(__FILE__)
 
 module AresMUSH
-     module Gifts
+     module Inklings
        include CommandHandler
 
     def self.plugin_dir
@@ -14,16 +14,16 @@ module AresMUSH
 
     def self.get_cmd_handler(client, cmd, enactor)
       case cmd.root
-      when "gifts"
+      when "inklings"
        case cmd.switch
        when "set"
-          return SetGiftsCmd
+          return SetInklingsCmd
        when "edit"
-         return EditGiftsCmd
+         return EditInklingsCmd
        when "delete"
-         return DeleteGiftsCmd
+         return DeleteInklingsCmd
        else
-          return GiftsCmd
+          return InklingsCmd
        end
      end
      return nil

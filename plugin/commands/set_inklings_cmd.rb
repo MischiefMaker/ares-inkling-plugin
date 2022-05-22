@@ -1,25 +1,25 @@
 module AresMUSH
-  module Gifts
-    class SetGiftsCmd
+  module Inklings
+    class SetInklingsCmd
       include CommandHandler
 
-      attr_accessor :name, :gift_name, :gift_description
+      attr_accessor :name, :inkling_name, :inkling_description
 
       def parse_args
         args = cmd.parse_args(ArgParser.arg1_equals_arg2_slash_optional_arg3)
         if (args.arg3 == nil)
           self.name = enactor_name
-          self.gift_name = titlecase_arg(args.arg1)
-          self.gift_description = trim_arg(args.arg2)
+          self.inkling_name = titlecase_arg(args.arg1)
+          self.inkling_description = trim_arg(args.arg2)
         else
           self.name = titlecase_arg(args.arg1)
-          self.gift_name = titlecase_arg(args.arg2)
-          self.gift_description = trim_arg(args.arg3)
+          self.inkling_name = titlecase_arg(args.arg2)
+          self.inkling_description = trim_arg(args.arg3)
         end
       end
 
      def required_args
-       [ self.name, self.gift_description, self.gift_name ]
+       [ self.name, self.inkling_description, self.inkling_name ]
      end
 
      def check_chargen_locked
@@ -29,10 +29,10 @@ module AresMUSH
 
       def handle
         ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
-        gifts = model.gifts || {}
-        gifts[self.gift_name] = self.gift_description
-        model.update(gifts: gifts)
-        client.emit_success "Gifts set for #{self.name}!"
+        inklings = model.inklings || {}
+        inklings[self.inkling_name] = self.inkling_description
+        model.update(inklings: inklings)
+        client.emit_success "Inkling set for #{self.name}!"
       end
     end
   end

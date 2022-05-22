@@ -1,5 +1,5 @@
 inklingmodule AresMUSH
-  module inklings
+  module Inklings
     class DeleteInklingsCmd
     include CommandHandler
 

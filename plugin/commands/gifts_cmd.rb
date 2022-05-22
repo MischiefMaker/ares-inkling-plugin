@@ -1,6 +1,6 @@
 module AresMUSH
-  module Gifts
-    class GiftsCmd
+  module Inklings
+    class InklingsCmd
       include CommandHandler
 
       attr_accessor :name
@@ -12,7 +12,7 @@ module AresMUSH
 
       def handle
         ClassTargetFinder.with_a_character(self.name, client, enactor) do |model|
-          template = GiftsTemplate.new(model,model.gifts || {})
+          template = InklingsTemplate.new(model,model.inklings || {})
           client.emit template.render
 	       end
       end
